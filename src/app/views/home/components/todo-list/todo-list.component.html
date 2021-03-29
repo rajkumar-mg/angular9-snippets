@@ -1,0 +1,33 @@
+<section class="todo-list">
+    <mat-card class="todo-list__todo-card">
+        <mat-card-title class="todo-list__card-title">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h3><span [style.font-weight]="'500'">Todo</span> List</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                    <mat-icon class="todo-list__mat-header-icon">settings</mat-icon>
+                    <mat-icon class="todo-list__mat-header-icon">close</mat-icon>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <p class="todo-list__todo-label">Add Todo: </p>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+            <mat-form-field class="todo-list__mat-form-field" fxFlex="85">
+                <input matInput [(ngModel)]="addTodoText" (keydown.enter)="addToDo()" placeholder="Type todo here">
+            </mat-form-field>
+            <mat-icon class="todo-list__todo-btn" fxFlex="5">navigate_next</mat-icon>
+        </div>
+        <div class="todo-list__todo-body">
+            <mat-list role="list" *ngFor="let each of todoList; let ind=index" class="todo-list__mat-list-item">
+                <mat-list-item>
+                    <mat-checkbox [class.todo-list__todo--complete]="each?.complete" [style.font-style]="'italic'"
+                        [checked]="each.complete" color="primary" (change)="checkboxChange($event,ind)">{{ each?.task }}
+                    </mat-checkbox>
+                    <div fxLayout="row" fxFlex="1 1 0%" fxLayoutAlign="end center">
+                        <mat-icon color="warn" (click)="removeTodo(ind)" [style.cursor]="'pointer'">cancel</mat-icon>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-card>
+</section>

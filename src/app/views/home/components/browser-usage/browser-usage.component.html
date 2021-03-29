@@ -1,0 +1,99 @@
+<section class="browser-usage">
+    <mat-card class="browser-usage__browser-usage-card">
+        <mat-card-title class="browser-usage__card-title">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h3><span [style.font-weight]="'500'">Browser</span> Usage</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                    <mat-icon class="browser-usage__mat-header-icon">settings</mat-icon>
+                    <mat-icon class="browser-usage__mat-header-icon">close</mat-icon>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <div echarts id="echartsBrowser"  [autoResize]="true" style="height: 300px;"></div>
+        <div [style.padding]="'4px'">
+            <mat-divider></mat-divider>
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true" class="browser-usage__mat-expansion-panel"
+                (opened)="panelOpened_0 = true" (closed)="panelOpened_0 = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div>
+                            <mat-icon *ngIf="!panelOpened_0">add</mat-icon>
+                            <mat-icon *ngIf="panelOpened_0">remove</mat-icon>
+                            <span>This Month</span>
+                            <span class="badge">3</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table class="browser-usage__table">
+                    <tbody *ngFor="let each of tableValue">
+                        <tr>
+                            <td>{{each.index}}</td>
+                            <td>{{each.name}}</td>
+                            <td>{{each.value}}</td>
+                            <td>
+                                <mat-icon [ngStyle]="{'color': each.icon =='arrow_drop_up' ?'#04af04':'#ff0000'}">
+                                    {{each.icon}}
+                                </mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="browser-usage__mat-expansion-panel" (opened)="panelOpened_1 = true"
+                (closed)="panelOpened_1 = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div>
+                            <mat-icon *ngIf="!panelOpened_1">add</mat-icon>
+                            <mat-icon *ngIf="panelOpened_1">remove</mat-icon>
+                            <span>Last Month</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table class="browser-usage__table">
+                    <tbody *ngFor="let each of tableValue">
+                        <tr>
+                            <td>{{each.index}}</td>
+                            <td>{{each.name}}</td>
+                            <td>{{each.value}}</td>
+                            <td>
+                                <mat-icon [ngStyle]="{'color': each.icon =='arrow_drop_up' ?'#04af04':'#ff0000'}">
+                                    {{each.icon}}
+                                </mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="browser-usage__mat-expansion-panel" (opened)="panelOpened_2 = true"
+                (closed)="panelOpened_2 = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div>
+                            <mat-icon *ngIf="!panelOpened_2">add</mat-icon>
+                            <mat-icon *ngIf="panelOpened_2">remove</mat-icon>
+                            <span>This Year</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table class="browser-usage__table">
+                    <tbody *ngFor="let each of tableValue">
+                        <tr>
+                            <td>{{each.index}}</td>
+                            <td>{{each.name}}</td>
+                            <td>{{each.value}}</td>
+                            <td>
+                                <mat-icon [ngStyle]="{'color': each.icon =='arrow_drop_up' ?'#04af04':'#ff0000'}">
+                                    {{each.icon}}
+                                </mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card>
+</section>

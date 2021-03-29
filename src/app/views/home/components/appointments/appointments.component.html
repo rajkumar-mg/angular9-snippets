@@ -1,0 +1,60 @@
+<section class="appointments">
+    <mat-card class="appointments__mat-card">
+        <mat-card-title class="appointments__card-title">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h3>Appointments</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                    <mat-icon class="appointments__mat-header-icon">settings</mat-icon>
+                    <mat-icon class="appointments__mat-header-icon">close</mat-icon>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-divider class="appointments__mat-divider"></mat-divider>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="16px"
+            [style.padding-bottom]="'16px'">
+            <div fxFlex="45" class="appointments__content-section-1">
+                <h4>Bratislava</h4>
+                <canvas id="canvas" width="130" height="130"> </canvas>
+                <br>
+                <span>30°C</span>
+            </div>
+
+            <div fxFlex="45" class="appointments__content-section-2">
+                <span class="appointments__date-value">{{todayDate}}</span>
+                <br>
+                <span class="appointments__month-value">{{todayMonth}}</span>
+            </div>
+        </div>
+
+        <mat-divider class="appointments__mat-divider"></mat-divider>
+
+        <ngu-carousel #carousal [inputs]="carouselTileConfig" [dataSource]="carousalData">
+            <ngu-item *nguCarouselDef="let each; let ind = index;" class="appointments__carousal-ngu-item">
+                <section class="appointments">
+                    <div class="appointments__carousal-body">
+                        <p class="header">
+                            <mat-icon>schedule</mat-icon><span>{{each.time}},</span>&nbsp;
+                            <small>Estimated time: {{each.estimatedHrs}}</small>
+                        </p>
+                        <p class="title">
+                            {{each.title}}
+                        </p>
+                        <small class="body">
+                            {{each.description}}
+                        </small>
+                    </div>
+                </section>
+            </ngu-item>
+            <button NguCarouselPrev mat-mini-fab class="appointments__carousal-slide-btn" [style.left]="0">
+                <mat-icon fontSet="fa" fontIcon="fa-chevron-left"></mat-icon>
+            </button>
+            <button NguCarouselNext mat-mini-fab class="appointments__carousal-slide-btn" [style.right]="0">
+                <mat-icon fontSet="fa" fontIcon="fa-chevron-right"></mat-icon>
+            </button>
+            <ul NguCarouselPoint class="appointments__ngucarousel-point">
+                <li *ngFor="let i of carousal.pointNumbers; let ind = index" [class.active]="i==carousal.activePoint"
+                    (click)="carousal.moveTo(i)"></li>
+            </ul>
+        </ngu-carousel>
+    </mat-card>
+</section>

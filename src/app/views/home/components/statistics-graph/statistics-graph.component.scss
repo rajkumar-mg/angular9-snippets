@@ -1,0 +1,63 @@
+.statistics-graph {
+
+    &__graph-card {
+        min-height: 340px !important;
+        background-color: #16a085 !important;
+        color: #fff !important;
+    }
+
+    &__card-title {
+        margin-bottom: 0px !important;
+    }
+
+    &__mat-header-icon {
+        cursor: pointer;
+        line-height: 0.5;
+        font-weight: bold;
+        font-size: 19px !important;
+    }
+
+    &__mat-header-menu-btn {
+        padding: 0px 4px !important;
+        line-height: 24px;
+        margin-bottom: 12px !important;
+    }
+
+    &__chart {
+        height: 340px !important;
+
+        @media only screen and (max-width: 569px) and (min-width: 450px) {
+            height: 390px !important;
+        }
+
+        @media only screen and (max-width: 450px) and (min-width: 320px) {
+            height: 320px !important;
+        }
+
+        @media only screen and (max-width: 319px) {
+            height: 300px !important;
+        }
+    }
+
+    &__mat-menu-item {
+        min-width: 180px;
+        background: none !important;
+        height: 40px !important;
+
+        .mat-button {
+            background: #f5f5f5;
+            border: 1px solid #f5f5f5;
+            color: #08c;
+            line-height: 28px !important;
+            font-size: 13px !important;
+            padding-right: 15px;
+            text-align: initial;
+            width: 100%;
+        }
+    }
+
+    &__mat-menu-item--btn-selected {
+        background: #08c !important;
+        color: #fff !important;
+    }
+}

@@ -1,0 +1,188 @@
+.appointments {
+
+    &__mat-card {
+        min-height: 440px !important;
+        background-color: #16a085 !important;
+        color: #fff !important;
+        padding-bottom: 32px;
+    }
+
+    &__card-title {
+        margin-bottom: 0px !important;
+    }
+
+    &__mat-header-icon {
+        cursor: pointer;
+        line-height: 0.5;
+        font-weight: bold;
+        font-size: 19px !important;
+    }
+
+    &__mat-divider {
+        border-top-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &__content-section-1 {
+        text-align: center;
+        padding-top: 16px;
+    }
+
+    &__content-section-2 {
+        text-align: center;
+        border-left: 1px solid rgba(0, 0, 0, .05) !important;
+        position: relative;
+        min-height: 1px;
+    }
+
+    &__date-value {
+        font-size: 6rem;
+        line-height: 6rem;
+        font-weight: lighter;
+
+        @media (max-width: '320px') {
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+    }
+
+    &__month-value {
+        font-size: 2rem;
+        line-height: 2.3rem;
+        font-weight: 500;
+
+        @media (max-width: '320px') {
+            font-size: 1rem;
+            line-height: 1.3rem;
+        }
+    }
+
+    &__carousal-ngu-item {
+        @media (max-width: '320px') {
+            min-height: 22vh;
+        }
+
+        @media (min-width: '321px') {
+            min-height: 18vh;
+        }
+    }
+
+    &__carousal-body {
+
+        margin: 0 15%;
+        border: none !important;
+        min-width: 75%;
+        border-radius: 24px;
+        box-shadow: none;
+        padding: 0px;
+        background: 0 0;
+        padding-top: 16px !important;
+
+        .header {
+            text-align: center;
+            margin: 0px;
+
+            .mat-icon {
+                font-size: 15px;
+                vertical-align: middle;
+                line-height: 1.4;
+                font-weight: 600;
+
+                @media (max-width: '420px') {
+                    font-size: 12px !important;
+                    line-height: 2 !important;
+
+                }
+            }
+
+            span {
+                font-weight: 600;
+
+                @media (max-width: '420px') {
+                    font-size: 11px !important;
+                }
+            }
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0px 0px 0px !important;
+
+            @media (max-width: '420px') {
+                font-size: 13px !important;
+            }
+        }
+
+        .body {
+            font-size: 11px;
+
+            @media (max-width: '420px') {
+                font-size: 10px !important;
+            }
+        }
+
+    }
+
+    &__carousal-slide-btn {
+
+        background: 0 0;
+        border: 1px solid rgba(255, 255, 255, .5);
+        opacity: 0.5;
+        position: absolute;
+        cursor: pointer;
+        margin: auto;
+        top: 0%;
+        bottom: 0;
+        box-shadow: none;
+        background-size: 2rem;
+
+        &:hover {
+            opacity: 1 !important;
+        }
+
+        .mat-icon {
+            font-size: 21px;
+
+            @media (max-width: '420px') {
+                font-size: 17px !important;
+            }
+        }
+
+        @media (max-width: '420px') {
+            height: 32px !important;
+            width: 32px !important;
+            line-height: 32px !important;
+        }
+    }
+
+    &__ngucarousel-point {
+        list-style-type: none;
+        padding: 3px;
+        white-space: nowrap;
+        overflow: auto;
+        position: relative;
+        left: 0;
+        box-sizing: border-box;
+        margin: 0 auto -28px;
+        align-self: center;
+        width: fit-content;
+        border-radius: 5px 5px 0 0;
+        bottom: 0px;
+        cursor: pointer;
+
+        li {
+            display: inline-block;
+            border-radius: 999px;
+            background-color: lightblue;
+            border: 1px solid lightblue;
+            padding: 5px;
+            margin: 0 3px;
+            transition: .4s ease all;
+        }
+
+        li.active {
+            background-color: #fff;
+        }
+    }
+
+}

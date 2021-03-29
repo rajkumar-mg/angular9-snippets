@@ -1,0 +1,24 @@
+.mini-calendar {
+
+    &__calendar-card {
+        min-height: 440px !important;
+        text-align: center;
+    }
+
+    &__card-title {
+        margin-bottom: 0px !important;
+    }
+
+    &__mat-header-icon {
+        cursor: pointer;
+        line-height: 0.5;
+        font-weight: bold;
+        font-size: 19px !important;
+    }
+
+    &__mat-calendar {
+        max-width: 350px !important;
+        display: inline-block;
+        width: 100%;
+    }
+}

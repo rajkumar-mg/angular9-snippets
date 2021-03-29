@@ -1,0 +1,74 @@
+<section class="statistics-graph">
+    <mat-card class="statistics-graph__graph-card">
+        <mat-card-title class="statistics-graph__card-title">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h3><span [style.font-weight]="'500'">Statistics</span> Graph</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                    <button mat-button [matMenuTriggerFor]="graphFilter" class="statistics-graph__mat-header-menu-btn">
+                        {{filterValue}} <mat-icon>keyboard_arrow_down</mat-icon>
+                    </button>
+                    <mat-icon class="statistics-graph__mat-header-icon">settings</mat-icon>
+                    <mat-icon class="statistics-graph__mat-header-icon">close</mat-icon>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <div echarts class="statistics-graph__chart" [options]="chartOptions" [autoResize]="true">
+        </div>
+    </mat-card>
+
+    <mat-menu #graphFilter="matMenu">
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('today')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='today'">Today</button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('yesterday')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='yesterday'">Yesterday</button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('last 7')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='last 7'">Last 7 Days </button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('last 30')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='last 30'">Last 30 Days</button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('this month')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='this month'">This Month</button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="filterSelection('last month')"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='last month'">Last Month
+            </button>
+        </button>
+        <button mat-menu-item class="statistics-graph__mat-menu-item">
+            <button mat-button (click)="fromDtPicker.open();$event.stopPropagation();"
+                [class.statistics-graph__mat-menu-item--btn-selected]="selectedFilter=='custom'">Custom Range</button>
+        </button>
+        <button mat-menu-item [style.background]="'none'">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                <mat-form-field fxFlex="45">
+                    <mat-label>From</mat-label>
+                    <input matInput [matDatepicker]="fromDtPicker"
+                        (click)="fromDtPicker.open();$event.stopPropagation();" [(ngModel)]="filterDateFrom"
+                        (dateChange)="dateChange($event,'stDate')">
+                    <mat-datepicker #fromDtPicker> </mat-datepicker>
+                </mat-form-field>
+                <mat-form-field fxFlex="45">
+                    <mat-label>To</mat-label>
+                    <input matInput [matDatepicker]="toDtPicker" (click)="toDtPicker.open();$event.stopPropagation();"
+                        [(ngModel)]="filterDateTo" (dateChange)="dateChange($event,'toDate')" [min]="toDatemin">
+                    <mat-datepicker #toDtPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </button>
+        <button mat-menu-item [style.background]="'none'">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                <button mat-flat-button fxFlex="40" color="primary" (click)="filterSelection('custom')">Apply</button>
+                <button mat-flat-button fxFlex="40" color="warn">Cancel</button>
+            </div>
+        </button>
+    </mat-menu>
+</section>

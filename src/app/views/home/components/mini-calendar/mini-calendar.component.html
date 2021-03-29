@@ -1,0 +1,17 @@
+<section class="mini-calendar">
+    <mat-card class="mini-calendar__calendar-card">
+        <mat-card-title class="mini-calendar__card-title">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h3><span [style.font-weight]="'500'">Mini</span> Calendar</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+                    <mat-icon class="mini-calendar__mat-header-icon">settings</mat-icon>
+                    <mat-icon class="mini-calendar__mat-header-icon">close</mat-icon>
+                </div>
+            </div>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-calendar [selected]="selectedDate" (selectedChange)="dateChangEvent($event)"
+            class="mini-calendar__mat-calendar" color="primary">
+        </mat-calendar>
+    </mat-card>
+</section>

@@ -1,0 +1,20 @@
+<section>
+
+    <div fxLayout.gt-sm="row wrap" fxLayoutAlign.gt-sm="start center" fxLayoutGap.gt-sm="32px" fxLayout.lt-md="column"
+        fxLayoutGap.lt-md="16px">
+        <div fxFlex.gt-sm="72">
+            <app-statistics-graph></app-statistics-graph>
+        </div>
+    </div>
+
+    <div fxLayout.gt-sm="row wrap" fxLayoutAlign.gt-sm="start center" fxLayoutGap.gt-sm="32px" fxLayout.lt-md="column"
+        fxLayoutGap.lt-md="16px" [style.padding-top]="'16px'">
+        <div fxFlex.gt-sm="25">
+            <app-mini-calendar></app-mini-calendar>
+        </div>
+        <div fxFlex.gt-sm="25">
+            <app-todo-list></app-todo-list>
+        </div>
+    </div>
+
+</section>
